@@ -19,6 +19,7 @@ project(group: "org.primeframework", name: "prime-mvc-sample", version: "4.22.0"
 	dependencies {
     	group(name: "compile") {
     		dependency(id: "org.primeframework:prime-mvc:4.22.0")
+			dependency(id: "com.google.inject:guice:6.0.0", skipCompatibilityCheck: true)
     	}
     	group(name: "runtime") {
       		dependency(id: "com.google.guava:guava:32.1.2-jre", skipCompatibilityCheck: true)
