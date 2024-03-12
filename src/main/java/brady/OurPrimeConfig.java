@@ -22,6 +22,11 @@ public class OurPrimeConfig extends AbstractMVCConfiguration {
     }
 
     @Override
+    public boolean csrfEnabled() {
+        return true;
+    }
+
+    @Override
     public Path baseDirectory() {
         return Path.of("src/main/web");
     }
