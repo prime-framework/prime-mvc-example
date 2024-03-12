@@ -20,7 +20,7 @@ public abstract class SessionLoginContext implements UserLoginSecurityContext {
 
     @Override
     public String getSessionId() {
-        return null;
+        return "1234";
     }
 
     @Override
