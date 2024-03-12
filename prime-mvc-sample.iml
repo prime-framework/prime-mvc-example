@@ -31,6 +31,17 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/.savant/cache/io/fusionauth/java-http/0.2.8/java-http-0.2.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/.savant/cache/io/fusionauth/java-http/0.2.8/java-http-0.2.8-src.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
@@ -257,17 +268,6 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$MODULE_DIR$/.savant/cache/io/fusionauth/fusionauth-jwt/5.1.0/fusionauth-jwt-5.1.0-src.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/.savant/cache/io/fusionauth/java-http/0.2.8/java-http-0.2.8.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/.savant/cache/io/fusionauth/java-http/0.2.8/java-http-0.2.8-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
