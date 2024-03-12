@@ -7,7 +7,7 @@ import org.primeframework.mvc.security.UserLoginSecurityContext;
 
 public class OurModule extends AbstractModule {
     protected void configure() {
-        bind(UserLoginSecurityContext.class).to(SomeLoginContext.class).asEagerSingleton();
+        bind(UserLoginSecurityContext.class).to(SomeLoginContext.class);
         bind(CORSConfigurationProvider.class).to(OurCORS.class).asEagerSingleton();
         bind(MVCConfiguration.class).to(OurPrimeConfig.class).asEagerSingleton();
     }
