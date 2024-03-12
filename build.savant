@@ -23,6 +23,7 @@ project(group: "org.primeframework", name: "prime-mvc-sample", version: "4.22.0"
 			dependency(id: "io.fusionauth:java-http:0.2.8")
     	}
     	group(name: "runtime") {
+			dependency(id: "org.slf4j:slf4j-simple:2.0.12")
       		dependency(id: "com.google.guava:guava:32.1.2-jre", skipCompatibilityCheck: true)
       		dependency(id: "com.google.code.findbugs:jsr305:3.0.2", skipCompatibilityCheck: true)
     	}

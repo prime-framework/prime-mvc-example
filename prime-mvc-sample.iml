@@ -296,11 +296,22 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-simple/2.0.12/slf4j-simple-2.0.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-simple/2.0.12/slf4j-simple-2.0.12-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
