@@ -4,6 +4,7 @@ import com.google.inject.Module;
 import io.fusionauth.http.server.HTTPListenerConfiguration;
 import io.fusionauth.http.server.HTTPServerConfiguration;
 import org.primeframework.mvc.BasePrimeMain;
+import org.primeframework.mvc.guice.MVCModule;
 
 public class PrimeTest extends BasePrimeMain {
     public static void main(String[] args) {
@@ -22,6 +23,6 @@ public class PrimeTest extends BasePrimeMain {
 
     @Override
     protected Module[] modules() {
-        return new Module[]{new OurModule()};
+        return new Module[]{new OurModule(), new MVCModule()};
     }
 }
