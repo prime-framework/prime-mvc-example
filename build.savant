@@ -53,5 +53,9 @@ target(name: "jar", description: "JARs the project", dependsOn: ["compile"]) {
 
 target(name: "idea", description: "Updates the IntelliJ IDEA module file") {
   idea.iml()
-  updatePOM()
 }
+
+target(name: "pom", description: "Updates the pom.xml file") {
+  pom.update()
+}
+
