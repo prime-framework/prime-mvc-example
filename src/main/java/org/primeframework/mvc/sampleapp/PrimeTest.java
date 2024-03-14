@@ -1,4 +1,4 @@
-package brady;
+package org.primeframework.mvc.sampleapp;
 
 import com.google.inject.Module;
 import io.fusionauth.http.server.HTTPListenerConfiguration;

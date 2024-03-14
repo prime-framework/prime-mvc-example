@@ -1,4 +1,4 @@
-package brady.action;
+package org.primeframework.mvc.sampleapp.action;
 
 import org.primeframework.mvc.action.result.annotation.SaveRequest;
 

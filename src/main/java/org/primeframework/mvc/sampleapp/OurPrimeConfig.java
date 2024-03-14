@@ -1,4 +1,4 @@
-package brady;
+package org.primeframework.mvc.sampleapp;
 
 import org.primeframework.mvc.config.AbstractMVCConfiguration;
 

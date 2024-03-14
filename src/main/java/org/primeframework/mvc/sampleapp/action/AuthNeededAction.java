@@ -1,4 +1,4 @@
-package brady.action;
+package org.primeframework.mvc.sampleapp.action;
 
 import com.google.inject.Inject;
 import org.primeframework.mvc.action.annotation.Action;
