@@ -42,3 +42,22 @@ Response:
 < 
 * Connection #0 to host localhost left intact
 ```
+
+The redirect to / happens because:
+
+1. We are not authenticated.
+1. `AuthNeededAction` `@Action` annotation has `requiresAuthentication = true`
+1. `BaseAction` has this annotation: `@SaveRequest(uri = "/")`
+
+The latter causes a redirect to occur if an action fails due to an `unauthenticated` response code. It also saves the original URL the user was attempting to access such that if the login is successful, they can be sent back there.
+If the cookie is present and the login succeeds, code such as `SavedRequestWorkflow` and `ReexecuteSavedRequestResult` will send the user back to
+
+# What all is in here?
+
+* 2 actions (1 action base class) in `src/main/java/org/primeframework/mvc/sampleapp/action`
+* 2 templates for those actions in `src/main/web/templates`.
+* `PrimeTest` class to bootstrap HTTP server and supply the correct Guice modules.
+* Basic Guice module `OurModule` to wire up the minimum Prime dependencies.
+* Configuration classes
+  * `OurPrimeConfig` is the main one - controls paths (which affect template resolution), cookie settings, CSRF settings
+  * `OurCORS` is the CORS policy config class
