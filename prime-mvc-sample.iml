@@ -302,7 +302,7 @@
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -313,9 +313,10 @@
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-simple/2.0.12/slf4j-simple-2.0.12-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-simple/2.0.12/slf4j-simple-2.0.12-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
   </component>
 </module>
+
