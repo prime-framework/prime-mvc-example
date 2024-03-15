@@ -3,6 +3,11 @@
 Savant installed
 JDK installed
 
+# Assumptions
+
+1. You can get familiar with Freemarker Template basics elsewhere
+1. You can figure out how to run this outside of an IDE elsewhere, since it's just executing a Java class with a main method.
+
 # Running
 
 To ensure your dependencies are fetched, before opening IntelliJ
