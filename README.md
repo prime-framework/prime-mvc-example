@@ -21,7 +21,7 @@ http://localhost:8080 (goes to IndexAction)
 
 We don't have session support in this example, but if you go here, you'll see a redirect to login since /auth-needed requires authentication.
 
-curl -v http://localhost:8080/auth-needed
+curl -v http://localhost:8080/page-that-requires-auth
 
 Response:
 
@@ -46,7 +46,7 @@ Response:
 The redirect to / happens because:
 
 1. We are not authenticated.
-1. `AuthNeededAction` `@Action` annotation has `requiresAuthentication = true`
+1. `PageThatRequiresAuthAction` `@Action` annotation has `requiresAuthentication = true`
 1. `BaseAction` has this annotation: `@SaveRequest(uri = "/")`
 
 The latter causes a redirect to occur if an action fails due to an `unauthenticated` response code. It also saves the original URL the user was attempting to access such that if the login is successful, they can be sent back there.
