@@ -6,9 +6,7 @@ import org.primeframework.mvc.action.annotation.Action;
 import org.primeframework.mvc.message.MessageStore;
 import org.primeframework.mvc.message.MessageType;
 import org.primeframework.mvc.message.SimpleFieldMessage;
-import org.primeframework.mvc.validation.Validatable;
 import org.primeframework.mvc.validation.ValidationMethod;
-import org.primeframework.mvc.validation.annotation.PostValidationMethod;
 
 @Action
 public class FormAction extends BaseAction {
