@@ -10,6 +10,11 @@
     <h1>${result}</h1>
 [/#if]
 Please fill out the following form:
+<ul>
+[#list fieldMessages as field, message]
+    <li>${field} - ${message}</li>
+[/#list]
+</ul>
 [@control.form action="form" method="POST"]
     [@control.text name="yourName" label="Greeting"/]
     [@control.submit name="submit"/]
