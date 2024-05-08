@@ -42,7 +42,7 @@ Shows using a form control. The form:
 
 1. Has validation to ensure you supply the required name field.
 2. The controls handle populating the form fields with data based on the `FormAction` class fields.
-3. The controls also populate the `FormAction` class fields with data on `POST`.
+3. The controls also populate the `FormAction` class fields with data when the Freemarker templates are rendered (could be on any of action methods).
 4. If you include the word `crash` in your name, you will see how an exception is handled (`BaseAction` has the code `error` mapped)
 
 Response:
