@@ -18,9 +18,13 @@ project(group: "org.primeframework", name: "prime-mvc-sample", version: "4.22.0"
 	}
 	dependencies {
     	group(name: "compile") {
-    		dependency(id: "org.primeframework:prime-mvc:4.22.0")
+    		dependency(id: "org.primeframework:prime-mvc:4.22.8")
 			dependency(id: "com.google.inject:guice:6.0.0", skipCompatibilityCheck: true)
-			dependency(id: "io.fusionauth:java-http:0.2.8")
+			dependency(id: "io.fusionauth:java-http:0.3.4")
+			def jacksonVersion = "2.15.3"
+			dependency(id: "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
+			dependency(id: "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
+			dependency(id: "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
     	}
     	group(name: "runtime") {
 			dependency(id: "org.slf4j:slf4j-simple:2.0.12")
