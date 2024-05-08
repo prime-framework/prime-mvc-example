@@ -32,19 +32,6 @@ If you go here, you'll see a redirect to login since /auth-needed requires authe
 
 curl -v http://localhost:8080/page-that-requires-auth
 
-## /foobar
-
-Prime uses our `MissingAction` to handle this one. This is because the `missingPath` on the `MVCConfiguration` interface is set to `/missing`.
-
-## /form
-
-Shows using a form control. The form:
-
-1. Has validation to ensure you supply the required name field.
-2. The controls handle populating the form fields with data based on the `FormAction` class fields.
-3. The controls also populate the `FormAction` class fields with data when the Freemarker templates are rendered (could be on any of action methods).
-4. If you include the word `crash` in your name, you will see how an exception is handled (`BaseAction` has the code `error` mapped)
-
 Response:
 
 ```
@@ -76,6 +63,24 @@ The latter causes a redirect to occur if an action fails due to an `unauthentica
 If the cookie is present and the login succeeds, code such as `SavedRequestWorkflow` and `ReexecuteSavedRequestResult` will send the user back to the page they attempted to access.
 
 You can try this by entering any username in the login form and submitting. It will establish a session and redirect you back to where you started.
+
+In this example, we are using the `BaseUserIdCookieSecurityContext` to keep track of who is logged in (a session). That
+base class serializes the User ID, login time, and a session ID into an encrypted cookie.
+There are other options as well (JWT, etc.).
+
+## /foobar
+
+Prime uses our `MissingAction` to handle this one. This is because the `missingPath` on the `MVCConfiguration` interface is set to `/missing`.
+
+## /form
+
+Shows using a form control. The form:
+
+1. Has validation to ensure you supply the required name field.
+2. The controls handle populating the form fields with data based on the `FormAction` class fields.
+3. The controls also populate the `FormAction` class fields with data when the Freemarker templates are rendered (could be on any of action methods).
+4. If you include the word `crash` in your name, you will see how an exception is handled (`BaseAction` has the code `error` mapped)
+
 
 # What else is in here?
 
