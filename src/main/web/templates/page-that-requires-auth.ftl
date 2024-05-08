@@ -5,6 +5,6 @@
     <title>Page that requires auth</title>
 </head>
 <body>
-You are authenticated
+You, user ${loggedInUserId}, are authenticated
 </body>
 </html>
