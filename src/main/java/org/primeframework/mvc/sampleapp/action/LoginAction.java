@@ -13,8 +13,12 @@ import org.primeframework.mvc.security.UserLoginSecurityContext;
 public class LoginAction extends BaseAction {
   public String username;
 
+  private final UserLoginSecurityContext userLoginSecurityContext;
+
   @Inject
-  private UserLoginSecurityContext userLoginSecurityContext;
+  public LoginAction(UserLoginSecurityContext userLoginSecurityContext) {
+    this.userLoginSecurityContext = userLoginSecurityContext;
+  }
 
   public String get() {
     return "input";

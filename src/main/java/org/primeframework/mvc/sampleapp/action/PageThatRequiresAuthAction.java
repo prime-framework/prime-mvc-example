@@ -11,8 +11,12 @@ import org.primeframework.mvc.security.UserLoginSecurityContext;
 public class PageThatRequiresAuthAction extends BaseAction {
   public UUID loggedInUserId;
 
+  private final UserLoginSecurityContext securityContext;
+
   @Inject
-  private UserLoginSecurityContext securityContext;
+  public PageThatRequiresAuthAction(UserLoginSecurityContext securityContext) {
+    this.securityContext = securityContext;
+  }
 
   public String get() {
     loggedInUserId = ((OurUser) securityContext.getCurrentUser()).id;
