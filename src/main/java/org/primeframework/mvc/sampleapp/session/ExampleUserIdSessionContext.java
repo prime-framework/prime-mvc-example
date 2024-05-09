@@ -8,7 +8,7 @@ import org.primeframework.mvc.security.UserIdSessionContext;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-public class OurUserIdSessionContext implements UserIdSessionContext<UUID> {
+public class ExampleUserIdSessionContext implements UserIdSessionContext<UUID> {
     @JsonProperty
     private String loginInstant;
 
@@ -18,14 +18,14 @@ public class OurUserIdSessionContext implements UserIdSessionContext<UUID> {
     @JsonProperty
     private UUID userId;
 
-    public OurUserIdSessionContext(UUID userId, ZonedDateTime loginInstant) {
+    public ExampleUserIdSessionContext(UUID userId, ZonedDateTime loginInstant) {
         sessionId = UUID.randomUUID().toString();
         this.userId = userId;
         this.loginInstant = loginInstant.toString();
     }
 
     @JsonCreator
-    private OurUserIdSessionContext() {
+    private ExampleUserIdSessionContext() {
     }
 
     @JsonIgnore

@@ -14,12 +14,12 @@ import java.time.ZonedDateTime;
 import java.util.Set;
 import java.util.UUID;
 
-public class OurLoginContext extends BaseUserIdCookieSecurityContext<UUID> {
+public class ExampleLoginContext extends BaseUserIdCookieSecurityContext<UUID> {
     @Inject
-    public OurLoginContext(HTTPRequest request,
-                           HTTPResponse response,
-                           Encryptor encryptor,
-                           ObjectMapper objectMapper) {
+    public ExampleLoginContext(HTTPRequest request,
+                               HTTPResponse response,
+                               Encryptor encryptor,
+                               ObjectMapper objectMapper) {
         super(request,
                 response,
                 encryptor,
@@ -31,7 +31,7 @@ public class OurLoginContext extends BaseUserIdCookieSecurityContext<UUID> {
 
     @Override
     protected UserIdSessionContext<UUID> createUserIdSessionContext(UUID uuid, ZonedDateTime loginInstant) {
-        return new OurUserIdSessionContext(uuid, loginInstant);
+        return new ExampleUserIdSessionContext(uuid, loginInstant);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class OurLoginContext extends BaseUserIdCookieSecurityContext<UUID> {
 
     @Override
     protected Class<? extends UserIdSessionContext<UUID>> getUserIdSessionContextClass() {
-        return OurUserIdSessionContext.class;
+        return ExampleUserIdSessionContext.class;
     }
 
     @Override

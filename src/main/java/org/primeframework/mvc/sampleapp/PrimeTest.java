@@ -23,6 +23,6 @@ public class PrimeTest extends BasePrimeMain {
 
     @Override
     protected Module[] modules() {
-        return new Module[]{new OurModule(), new MVCModule()};
+        return new Module[]{new ExampleModule(), new MVCModule()};
     }
 }
