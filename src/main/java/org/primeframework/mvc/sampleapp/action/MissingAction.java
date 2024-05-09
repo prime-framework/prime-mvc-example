@@ -6,7 +6,7 @@ import org.primeframework.mvc.action.result.annotation.Forward;
 @Action
 @Forward(status = 404)
 public class MissingAction {
-    public String execute() {
-        return "success";
-    }
+  public String execute() {
+    return "success";
+  }
 }

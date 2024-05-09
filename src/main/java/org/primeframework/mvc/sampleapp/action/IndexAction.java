@@ -6,13 +6,13 @@ import org.primeframework.mvc.action.annotation.Action;
 
 @Action
 public class IndexAction extends BaseAction {
-    @Inject
-    private HTTPRequest httpRequest;
+  public String baseUrl;
 
-    public String baseUrl;
+  @Inject
+  private HTTPRequest httpRequest;
 
-    public String get() {
-        this.baseUrl = httpRequest.getBaseURL();
-        return "success";
-    }
+  public String get() {
+    this.baseUrl = httpRequest.getBaseURL();
+    return "success";
+  }
 }

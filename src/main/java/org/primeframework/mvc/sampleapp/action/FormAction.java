@@ -10,35 +10,36 @@ import org.primeframework.mvc.validation.ValidationMethod;
 
 @Action
 public class FormAction extends BaseAction {
-    private final MessageStore messageStore;
+  private final MessageStore messageStore;
 
-    public String result;
-    public String yourName;
+  public String result;
 
-    @Inject
-    public FormAction(MessageStore messageStore) {
-        this.messageStore = messageStore;
+  public String yourName;
+
+  @Inject
+  public FormAction(MessageStore messageStore) {
+    this.messageStore = messageStore;
+  }
+
+  public String get() {
+    return "success";
+  }
+
+  public String post() {
+    if (yourName != null && yourName.contains("crash")) {
+      throw new RuntimeException("we have a problem");
     }
+    this.result = "Hello " + yourName;
+    return "success";
+  }
 
-    public String get() {
-        return "success";
+  @ValidationMethod(httpMethods = HTTPValues.Methods.POST)
+  public void validate() {
+    if (yourName == null) {
+      this.messageStore.add(new SimpleFieldMessage(MessageType.ERROR,
+          "yourName",
+          "invalid[yourName]",
+          "name is required"));
     }
-
-    public String post() {
-        if (yourName != null && yourName.contains("crash")) {
-            throw new RuntimeException("we have a problem");
-        }
-        this.result = "Hello "+yourName;
-        return "success";
-    }
-
-    @ValidationMethod(httpMethods = HTTPValues.Methods.POST)
-    public void validate() {
-        if (yourName == null) {
-            this.messageStore.add(new SimpleFieldMessage(MessageType.ERROR,
-                    "yourName",
-                    "invalid[yourName]",
-                    "name is required"));
-        }
-    }
+  }
 }
