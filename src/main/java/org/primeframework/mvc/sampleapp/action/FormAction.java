@@ -6,19 +6,23 @@ import org.primeframework.mvc.action.annotation.Action;
 import org.primeframework.mvc.message.MessageStore;
 import org.primeframework.mvc.message.MessageType;
 import org.primeframework.mvc.message.SimpleFieldMessage;
+import org.primeframework.mvc.message.SimpleMessage;
+import org.primeframework.mvc.message.l10n.MessageProvider;
 import org.primeframework.mvc.validation.ValidationMethod;
 
 @Action
 public class FormAction extends BaseAction {
   private final MessageStore messageStore;
+  private final MessageProvider messageProvider;
 
   public String result;
 
   public String yourName;
 
   @Inject
-  public FormAction(MessageStore messageStore) {
+  public FormAction(MessageStore messageStore, MessageProvider messageProvider) {
     this.messageStore = messageStore;
+    this.messageProvider = messageProvider;
   }
 
   public String get() {
@@ -33,13 +37,15 @@ public class FormAction extends BaseAction {
     return "success";
   }
 
-  @ValidationMethod(httpMethods = HTTPValues.Methods.POST)
+  // runs by default on POST
+  @ValidationMethod
   public void validate() {
     if (yourName == null) {
-      this.messageStore.add(new SimpleFieldMessage(MessageType.ERROR,
+      var message = new SimpleFieldMessage(MessageType.ERROR,
           "yourName",
           "invalid[yourName]",
-          "name is required"));
+          messageProvider.getMessage("invalid[yourName]"));
+      this.messageStore.add(message);
     }
   }
 }
