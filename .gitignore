@@ -1,3 +1,4 @@
 /.savant
-/.idea
 /build
+/.idea/libraries
+.idea/uiDesigner.xml
