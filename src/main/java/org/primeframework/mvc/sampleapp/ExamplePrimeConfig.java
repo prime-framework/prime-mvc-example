@@ -7,10 +7,10 @@ import java.security.SecureRandom;
 
 import org.primeframework.mvc.config.AbstractMVCConfiguration;
 
-public class OurPrimeConfig extends AbstractMVCConfiguration {
+public class ExamplePrimeConfig extends AbstractMVCConfiguration {
   private final SecretKeySpec cookieEncryptionKey;
 
-  public OurPrimeConfig() {
+  public ExamplePrimeConfig() {
     byte[] keyBytes = new byte[16];
     new SecureRandom().nextBytes(keyBytes);
     this.cookieEncryptionKey = new SecretKeySpec(keyBytes, "AES");

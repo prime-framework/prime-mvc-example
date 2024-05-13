@@ -16,7 +16,7 @@ To ensure your dependencies are fetched, before opening IntelliJ
 
 Then open the project in IntelliJ
 
-Navigate to the `PrimeTest` class and run it as a Java application.
+Navigate to the `ExamplePrimeMain` class and run it as a Java application.
 
 The web server should now be running on port 8080.
 
