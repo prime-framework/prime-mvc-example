@@ -31,7 +31,7 @@ public class FormAction extends BaseAction {
 
   public String post() {
     if (yourName != null && yourName.contains("crash")) {
-      throw new RuntimeException("we have a problem");
+      throw new RuntimeException("simulated problem from backend code");
     }
     this.result = "Hello " + yourName;
     return "success";

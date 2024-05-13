@@ -20,19 +20,24 @@ Navigate to the `ExamplePrimeMain` class and run it as a Java application.
 
 The web server should now be running on port 8080.
 
-# Actions you can hit
+# Sample URLs to access
 
 ## /
 
-http://localhost:8080 (goes to IndexAction)
+```shell
+# (goes to `IndexAction`)
+curl -v http://localhost:8080
+```
 
 ## /page-that-requires-auth
 
-If you go here, you'll see a redirect to login since /auth-needed requires authentication.
+If you go here, you'll see a redirect to `/login` (keep reading for why).
 
+```shell
 curl -v http://localhost:8080/page-that-requires-auth
+```
 
-Response:
+Sample output:
 
 ```
 *   Trying [::1]:8080...
@@ -55,8 +60,8 @@ Response:
 The redirect to `/login` happens because:
 
 1. We are not authenticated.
-1. `PageThatRequiresAuthAction` `@Action` annotation has `requiresAuthentication = true`
-1. `BaseAction` has this annotation: `@SaveRequest(uri = "/login")`
+2. The `PageThatRequiresAuthAction` action class has an `@Action` annotation has `requiresAuthentication = true`
+3. `BaseAction` has this annotation: `@SaveRequest(uri = "/login")`
 
 The latter causes a redirect to occur if an action fails due to an `unauthenticated` response code. It also saves the original URL the user was attempting to access such that if the login is successful, they can be sent back there.
 
@@ -84,10 +89,9 @@ Shows using a form control. The form:
 
 # What else is in here?
 
-* 2 actions (1 action base class) in `src/main/java/org/primeframework/mvc/sampleapp/action`
 * 2 templates for those actions in `src/main/web/templates`.
-* `PrimeTest` class to bootstrap HTTP server and supply the correct Guice modules.
-* Basic Guice module `OurModule` to wire up the minimum Prime dependencies.
+* `ExamplePrimeMain` class to bootstrap HTTP server and supply the correct Guice modules.
+* Basic Guice module `ExampleModule` to wire up the minimum Prime dependencies.
 * Configuration classes
-  * `OurPrimeConfig` is the main one - controls paths (which affect template resolution), cookie settings, CSRF settings
-  * `OurCORS` is the CORS policy config class
+  * `ExamplePrimeConfig` is the main one - controls paths (which affect template resolution), cookie settings, CSRF settings
+  * `ExampleCORSProvider` is the CORS policy config class
