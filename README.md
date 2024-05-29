@@ -84,8 +84,12 @@ Shows using a form control. The form:
 1. Has validation to ensure you supply the required name field.
 2. The controls handle populating the form fields with data based on the `FormAction` class fields.
 3. The controls also populate the `FormAction` class fields with data when the Freemarker templates are rendered (could be on any of action methods).
-4. If you include the word `crash` in your name, you will see how an exception is handled (`BaseAction` has the code `error` mapped)
+4. If you include the word `crash` in your name, you will see how an exception is handled (`BaseAction` has the code `error` mapped).
+5. If you visit `/login` first and login/establish a session, then PMVC's Freemarker form control (see `[@control.form` in `form.ftl`) will include a CSRF token like this that is validated on POST requests only:
 
+```html
+<input type="hidden" name="primeCSRFToken" value="QkJCAYS8c-DFoBAd02ReblqfhEKQXD3DeZ77s_z046IHzuNu71_5t2wqZ9zeYyKfOQrqhoF-u9pm0GfRWUW4e3bgIpk4j3YzKxMz4j699_su984E3tCgZGT4uM_XoI3G5qtTag=="/>
+```
 
 # What else is in here?
 
