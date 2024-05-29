@@ -16,23 +16,28 @@ To ensure your dependencies are fetched, before opening IntelliJ
 
 Then open the project in IntelliJ
 
-Navigate to the `PrimeTest` class and run it as a Java application.
+Navigate to the `ExamplePrimeMain` class and run it as a Java application.
 
 The web server should now be running on port 8080.
 
-# Actions you can hit
+# Sample URLs to access
 
 ## /
 
-http://localhost:8080 (goes to IndexAction)
+```shell
+# (goes to `IndexAction`)
+curl -v http://localhost:8080
+```
 
 ## /page-that-requires-auth
 
-If you go here, you'll see a redirect to login since /auth-needed requires authentication.
+If you go here, you'll see a redirect to `/login` (keep reading for why).
 
+```shell
 curl -v http://localhost:8080/page-that-requires-auth
+```
 
-Response:
+Sample output:
 
 ```
 *   Trying [::1]:8080...
@@ -55,8 +60,8 @@ Response:
 The redirect to `/login` happens because:
 
 1. We are not authenticated.
-1. `PageThatRequiresAuthAction` `@Action` annotation has `requiresAuthentication = true`
-1. `BaseAction` has this annotation: `@SaveRequest(uri = "/login")`
+2. The `PageThatRequiresAuthAction` action class has an `@Action` annotation has `requiresAuthentication = true`
+3. `BaseAction` has this annotation: `@SaveRequest(uri = "/login")`
 
 The latter causes a redirect to occur if an action fails due to an `unauthenticated` response code. It also saves the original URL the user was attempting to access such that if the login is successful, they can be sent back there.
 
@@ -79,15 +84,18 @@ Shows using a form control. The form:
 1. Has validation to ensure you supply the required name field.
 2. The controls handle populating the form fields with data based on the `FormAction` class fields.
 3. The controls also populate the `FormAction` class fields with data when the Freemarker templates are rendered (could be on any of action methods).
-4. If you include the word `crash` in your name, you will see how an exception is handled (`BaseAction` has the code `error` mapped)
+4. If you include the word `crash` in your name, you will see how an exception is handled (`BaseAction` has the code `error` mapped).
+5. If you visit `/login` first and login/establish a session, then PMVC's Freemarker form control (see `[@control.form` in `form.ftl`) will include a CSRF token like this that is validated on POST requests only:
 
+```html
+<input type="hidden" name="primeCSRFToken" value="QkJCAYS8c-DFoBAd02ReblqfhEKQXD3DeZ77s_z046IHzuNu71_5t2wqZ9zeYyKfOQrqhoF-u9pm0GfRWUW4e3bgIpk4j3YzKxMz4j699_su984E3tCgZGT4uM_XoI3G5qtTag=="/>
+```
 
 # What else is in here?
 
-* 2 actions (1 action base class) in `src/main/java/org/primeframework/mvc/sampleapp/action`
 * 2 templates for those actions in `src/main/web/templates`.
-* `PrimeTest` class to bootstrap HTTP server and supply the correct Guice modules.
-* Basic Guice module `OurModule` to wire up the minimum Prime dependencies.
+* `ExamplePrimeMain` class to bootstrap HTTP server and supply the correct Guice modules.
+* Basic Guice module `ExampleModule` to wire up the minimum Prime dependencies.
 * Configuration classes
-  * `OurPrimeConfig` is the main one - controls paths (which affect template resolution), cookie settings, CSRF settings
-  * `OurCORS` is the CORS policy config class
+  * `ExamplePrimeConfig` is the main one - controls paths (which affect template resolution), cookie settings, CSRF settings
+  * `ExampleCORSProvider` is the CORS policy config class

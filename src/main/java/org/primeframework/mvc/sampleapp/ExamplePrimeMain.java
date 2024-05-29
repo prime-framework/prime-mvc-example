@@ -6,9 +6,9 @@ import io.fusionauth.http.server.HTTPServerConfiguration;
 import org.primeframework.mvc.BasePrimeMain;
 import org.primeframework.mvc.guice.MVCModule;
 
-public class PrimeTest extends BasePrimeMain {
+public class ExamplePrimeMain extends BasePrimeMain {
   public static void main(String[] args) {
-    var instance = new PrimeTest();
+    var instance = new ExamplePrimeMain();
     instance.registerShutdownHook();
     instance.start();
   }

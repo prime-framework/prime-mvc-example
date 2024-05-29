@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import com.google.inject.Inject;
 import org.primeframework.mvc.action.annotation.Action;
-import org.primeframework.mvc.sampleapp.domain.OurUser;
+import org.primeframework.mvc.sampleapp.domain.ExampleUser;
 import org.primeframework.mvc.security.UserLoginSecurityContext;
 
 @Action(requiresAuthentication = true)
@@ -19,7 +19,7 @@ public class PageThatRequiresAuthAction extends BaseAction {
   }
 
   public String get() {
-    loggedInUserId = ((OurUser) securityContext.getCurrentUser()).id;
+    loggedInUserId = ((ExampleUser) securityContext.getCurrentUser()).id;
     return "success";
   }
 }

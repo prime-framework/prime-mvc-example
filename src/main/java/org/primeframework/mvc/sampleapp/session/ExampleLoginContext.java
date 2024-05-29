@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Inject;
 import io.fusionauth.http.server.HTTPRequest;
 import io.fusionauth.http.server.HTTPResponse;
-import org.primeframework.mvc.sampleapp.domain.OurUser;
+import org.primeframework.mvc.sampleapp.domain.ExampleUser;
 import org.primeframework.mvc.security.BaseUserIdCookieSecurityContext;
 import org.primeframework.mvc.security.Encryptor;
 import org.primeframework.mvc.security.UserIdSessionContext;
@@ -42,7 +42,7 @@ public class ExampleLoginContext extends BaseUserIdCookieSecurityContext<UUID> {
 
   @Override
   protected UUID getIdFromUser(Object user) {
-    return ((OurUser) user).id;
+    return ((ExampleUser) user).id;
   }
 
   @Override
@@ -52,7 +52,7 @@ public class ExampleLoginContext extends BaseUserIdCookieSecurityContext<UUID> {
 
   @Override
   protected Object retrieveUserById(UUID uuid) {
-    var user = new OurUser();
+    var user = new ExampleUser();
     user.id = uuid;
     return user;
   }
