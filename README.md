@@ -10,6 +10,13 @@ JDK installed
 
 # Running
 
+## Run from command line
+
+`sb clean app start`
+
+The web server should now be running on port 8080.
+
+## Run via IntelliJ
 To ensure your dependencies are fetched, before opening IntelliJ
 
 `sb clean idea`

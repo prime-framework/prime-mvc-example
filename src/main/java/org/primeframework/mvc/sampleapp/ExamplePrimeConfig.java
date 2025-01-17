@@ -23,7 +23,7 @@ public class ExamplePrimeConfig extends AbstractMVCConfiguration {
 
   @Override
   public Path baseDirectory() {
-    return Path.of("src/main/web");
+    return Path.of("web");
   }
 
   @Override

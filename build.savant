@@ -42,6 +42,8 @@ project(group: "org.primeframework", name: "prime-mvc-sample", version: "4.22.0"
 java = loadPlugin(id: "org.savantbuild.plugin:java:2.0.0")
 javaTestNG = loadPlugin(id: "org.savantbuild.plugin:java-testng:2.0.0")
 idea = loadPlugin(id: "org.savantbuild.plugin:idea:2.0.0")
+file = loadPlugin(id: "org.savantbuild.plugin:file:2.0.0")
+dependency = loadPlugin(id: "org.savantbuild.plugin:dependency:2.0.0")
 
 java.settings.javaVersion = "17"
 javaTestNG.settings.javaVersion = "17"
@@ -62,4 +64,43 @@ target(name: "jar", description: "JARs the project", dependsOn: ["compile"]) {
 target(name: "idea", description: "Updates the IntelliJ IDEA module file") {
   idea.iml()
 }
+
+target(name: "app", description: "Builds a complete running app", dependsOn: ["jar"]) {
+	file.mkdir(dir: "build/dist/logs")
+	file.symlink(link: "build/dist/logs/prime-mvc-sample.log", target: "/dev/stdout")
+
+	dependency.copy(to: "build/dist/prime-mvc-sample/lib", removeVersion: false) {
+		dependencies(group: "compile", transitive: true, fetchSource: false, transitiveGroups: ["compile", "runtime"])
+		dependencies(group: "runtime", transitive: true, fetchSource: false, transitiveGroups: ["compile", "runtime"])
+	}
+
+	file.copy(to: "build/dist/prime-mvc-sample/lib") {
+		fileSet(dir: "build/jars", includePatterns: [
+				/${project.name}-${project.version}.jar/
+		])
+	}
+
+	// Copy over the script
+	file.copy(to: "build/dist/prime-mvc-sample") {
+		fileSet(dir: "src/main", includePatterns: [/bin/])
+	}
+
+	// Symlink the web dir
+	file.symlink(link: "build/dist/prime-mvc-sample/web", target: "web")
+
+	// Create a sym link to our "shipped" version of Java
+	def home = System.getenv("HOME")
+	file.symlink(link: "build/dist/java/current", target: "${home}/dev/java/current17")
+}
+
+target(name: "start", description: "Starts the app") {
+	ProcessBuilder pb = new ProcessBuilder("./build/dist/prime-mvc-sample/bin/start.sh")
+			.inheritIO()
+
+	def process = pb.start()
+	process.consumeProcessOutput(System.out, System.err)
+	process.waitFor()
+}
+
+
 
