@@ -1,4 +1,4 @@
-project(group: "org.primeframework", name: "prime-mvc-sample", version: "4.22.0", licenses: ["ApacheV2_0"]) { 
+project(group: "org.primeframework", name: "prime-mvc-example", version: "4.22.0", licenses: ["ApacheV2_0"]) { 
     workflow {
     	fetch {
 	      // Dependency resolution order:
@@ -67,26 +67,26 @@ target(name: "idea", description: "Updates the IntelliJ IDEA module file") {
 
 target(name: "app", description: "Builds a complete running app", dependsOn: ["jar"]) {
 	file.mkdir(dir: "build/dist/logs")
-	file.symlink(link: "build/dist/logs/prime-mvc-sample.log", target: "/dev/stdout")
+	file.symlink(link: "build/dist/logs/prime-mvc-example.log", target: "/dev/stdout")
 
-	dependency.copy(to: "build/dist/prime-mvc-sample/lib", removeVersion: false) {
+	dependency.copy(to: "build/dist/prime-mvc-example/lib", removeVersion: false) {
 		dependencies(group: "compile", transitive: true, fetchSource: false, transitiveGroups: ["compile", "runtime"])
 		dependencies(group: "runtime", transitive: true, fetchSource: false, transitiveGroups: ["compile", "runtime"])
 	}
 
-	file.copy(to: "build/dist/prime-mvc-sample/lib") {
+	file.copy(to: "build/dist/prime-mvc-example/lib") {
 		fileSet(dir: "build/jars", includePatterns: [
 				/${project.name}-${project.version}.jar/
 		])
 	}
 
 	// Copy over the script
-	file.copy(to: "build/dist/prime-mvc-sample") {
+	file.copy(to: "build/dist/prime-mvc-example") {
 		fileSet(dir: "src/main", includePatterns: [/bin/])
 	}
 
 	// Symlink the web dir
-	file.symlink(link: "build/dist/prime-mvc-sample/web", target: "web")
+	file.symlink(link: "build/dist/prime-mvc-example/web", target: "web")
 
 	// Create a sym link to our "shipped" version of Java
 	def home = System.getenv("HOME")
@@ -94,7 +94,7 @@ target(name: "app", description: "Builds a complete running app", dependsOn: ["j
 }
 
 target(name: "start", description: "Starts the app") {
-	ProcessBuilder pb = new ProcessBuilder("./build/dist/prime-mvc-sample/bin/start.sh")
+	ProcessBuilder pb = new ProcessBuilder("./build/dist/prime-mvc-example/bin/start.sh")
 			.inheritIO()
 
 	def process = pb.start()

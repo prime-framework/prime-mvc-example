@@ -7,7 +7,7 @@ set -e
 
 # Spit out some help
 if [[ ${1} == "-h" || ${1} == "--help" ]]; then
-  echo "This script starts the prime-mvc-sample service"
+  echo "This script starts the prime-mvc-example service"
   echo ""
   echo "Usage:"
   echo "  start.sh [options]"
@@ -28,7 +28,7 @@ done
 SCRIPT_DIR="$(cd -P "$(dirname "${SOURCE}")" > /dev/null && pwd)"
 cd "${SCRIPT_DIR}/../.."
 BASE_DIR=$(pwd)
-cd prime-mvc-sample
+cd prime-mvc-example
 APP_DIR=$(pwd)
 CONFIG_DIR=${BASE_DIR}/config
 JAVA_DIR=${BASE_DIR}/java
@@ -98,8 +98,8 @@ if [[ ${CLEANSPEAK_USE_GLOBAL_JAVA} != 1 ]]; then
 fi
 
 # Start it up
-echo "Starting prime-mvc-sample..."
-echo "  --> Logging to ${LOG_DIR}/prime-mvc-sample.log"
+echo "Starting prime-mvc-example..."
+echo "  --> Logging to ${LOG_DIR}/prime-mvc-example.log"
 cd "${APP_DIR}"
 
 CLASSPATH=""
@@ -116,4 +116,4 @@ if [[ ${1} == "--debug" ]]; then
 fi
 
 # shellcheck disable=SC2086
-exec "${JAVA_HOME}/bin/java" -cp "${CLASSPATH}" ${JAVA_OPTS} org.primeframework.mvc.sampleapp.ExamplePrimeMain <&- >> "${LOG_DIR}/prime-mvc-sample.log" 2>&1
+exec "${JAVA_HOME}/bin/java" -cp "${CLASSPATH}" ${JAVA_OPTS} org.primeframework.mvc.sampleapp.ExamplePrimeMain <&- >> "${LOG_DIR}/prime-mvc-example.log" 2>&1

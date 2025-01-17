@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/prime-mvc-sample.iml" filepath="$PROJECT_DIR$/prime-mvc-sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prime-mvc-example.iml" filepath="$PROJECT_DIR$/prime-mvc-example.iml" />
     </modules>
   </component>
 </project>
