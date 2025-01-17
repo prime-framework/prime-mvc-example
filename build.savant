@@ -15,6 +15,11 @@ project(group: "org.primeframework", name: "prime-mvc-sample", version: "4.22.0"
 	    publish {
 	      cache()
 	    }
+
+		semanticVersions {
+			mapping(id: "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava", version: "9999.0.0")
+			mapping(id: "com.google.guava:guava-parent:26.0-android", version: "26.0.0")
+		}
 	}
 	dependencies {
     	group(name: "compile") {
