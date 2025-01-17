@@ -39,9 +39,9 @@ project(group: "org.primeframework", name: "prime-mvc-sample", version: "4.22.0"
 	}
 }
 
-java = loadPlugin(id: "org.savantbuild.plugin:java:2.0.0-RC.6")
-javaTestNG = loadPlugin(id: "org.savantbuild.plugin:java-testng:2.0.0-RC.6")
-idea = loadPlugin(id: "org.savantbuild.plugin:idea:2.0.0-RC.7")
+java = loadPlugin(id: "org.savantbuild.plugin:java:2.0.0")
+javaTestNG = loadPlugin(id: "org.savantbuild.plugin:java-testng:2.0.0")
+idea = loadPlugin(id: "org.savantbuild.plugin:idea:2.0.0")
 
 java.settings.javaVersion = "17"
 javaTestNG.settings.javaVersion = "17"
