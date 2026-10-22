@@ -23,11 +23,11 @@ project(group: "org.primeframework", name: "prime-mvc-example", version: "4.22.0
 	}
 	dependencies {
     	group(name: "compile") {
-    		dependency(id: "org.primeframework:prime-mvc:4.22.8")
+    	dependency(id: "org.primeframework:prime-mvc:5.12.0")
 			dependency(id: "com.google.inject:guice:6.0.0", skipCompatibilityCheck: true)
-			dependency(id: "io.fusionauth:java-http:0.3.4")
-			def jacksonVersion = "2.15.3"
-			dependency(id: "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
+			dependency(id: "io.fusionauth:java-http:1.4.4")
+			def jacksonVersion = "2.21.7"
+			dependency(id: "com.fasterxml.jackson.core:jackson-annotations:2.21")
 			dependency(id: "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
 			dependency(id: "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
     	}
@@ -41,12 +41,12 @@ project(group: "org.primeframework", name: "prime-mvc-example", version: "4.22.0
 
 java = loadPlugin(id: "org.savantbuild.plugin:java:2.0.0")
 javaTestNG = loadPlugin(id: "org.savantbuild.plugin:java-testng:2.0.0")
-idea = loadPlugin(id: "org.savantbuild.plugin:idea:2.0.0")
+idea = loadPlugin(id: "org.savantbuild.plugin:idea:2.0.2")
 file = loadPlugin(id: "org.savantbuild.plugin:file:2.0.0")
 dependency = loadPlugin(id: "org.savantbuild.plugin:dependency:2.0.0")
 
-java.settings.javaVersion = "17"
-javaTestNG.settings.javaVersion = "17"
+java.settings.javaVersion = "25"
+javaTestNG.settings.javaVersion = "25"
 
 target(name: "clean", description: "Cleans the project") {
   java.clean()
