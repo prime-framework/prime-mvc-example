@@ -9,7 +9,7 @@
 Please Login
 [@control.form action="login" method="POST"]
     [@control.text name="username" label="Username"/]
-    [@control.submit name="submit"/]
+    <input type="submit" id="submit" value="Submit">
 [/@control.form]
 </body>
 </html>
